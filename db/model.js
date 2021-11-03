@@ -22,4 +22,11 @@ const createUser = (name, email, password) => {
     .catch((e) => console.log(e.stack));
 };
 
-export { getUser, createUser };
+const getAllProducts = () => {
+  const SELECT_PRODUCTS = `
+      SELECT * FROM products
+    `;
+  return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+export { getUser, createUser,  getAllProducts };
