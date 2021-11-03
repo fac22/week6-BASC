@@ -1,7 +1,8 @@
-import { all } from '../../db/model';
-import { verifyUser } from '../../db/auth';
+import { verifyUser, checkLogin } from '../../db/auth';
 
 export default function handler(req, res) {
   const { email, password } = req.body;
-  verifyUser(email, password).then(() => res.redirect('/success'));
+  checkLogin(email, password)
+    .then(verifyUser(email, password))
+    .then(() => res.redirect('/success'));
 }
