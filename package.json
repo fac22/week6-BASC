@@ -20,5 +20,9 @@
     "cypress": "^8.7.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.2"
-  }
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true
 }
