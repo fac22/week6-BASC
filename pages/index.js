@@ -13,7 +13,6 @@ export async function getStaticProps({ req, res }) {
 }
 
 export default function Home({ productData }) {
-  console.log(productData);
   const productsArray = JSON.parse(productData);
   return (
     <div>
