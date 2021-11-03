@@ -50,10 +50,27 @@ function deleteSession(sid) {
 }
 
 const getAllProducts = () => {
+  const SELECT_PRODUCTS = `SELECT * FROM products`;
+  return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+const getAllProductsID = () => {
   const SELECT_PRODUCTS = `
-      SELECT * FROM products
+      SELECT id FROM products
     `;
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+const getProduct = (id) => {
+  const GET_PRODUCT = {
+    text: 'SELECT * FROM products WHERE id=$1',
+    values: [id],
+  };
+
+  return db
+    .query(GET_PRODUCT)
+    .then((product) => product.rows[0])
+    .catch((e) => console.log(e.stack));
 };
 
 export {
@@ -63,4 +80,6 @@ export {
   getAllProducts,
   getSession,
   deleteSession,
+  getProduct,
+  getAllProductsID,
 };
