@@ -5,13 +5,8 @@ const Basket = () => {
     <>
       <h1>Your shopping basket</h1>
       <form action="api/basket" method="POST">
-        {/* PRODUCT_TITLE, ID */}
-        <input name="user_id" value="1" />
-        <input name="product_title" value="CUSHION" />
-        <input name="product_colour" value="RED" />
-        <input name="product_size" value="LARGE" />
-        <input name="product_price" value="100" />
-
+        {/* - List all products here (model method for getting basket)
+- Delete button linked to model method */}
         <button type="submit">Add to Basket</button>
       </form>
     </>

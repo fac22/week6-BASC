@@ -105,6 +105,5 @@ export {
   getProduct,
   getAllProducts,
   getAllProductsID,
-  getProduct,
   addToBasket,
 };

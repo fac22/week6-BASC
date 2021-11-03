@@ -1,20 +1,15 @@
 import { addToBasket } from '../../db/model';
 
 export default function handler(req, res) {
-  const {
-    user_id,
-    product_title,
-    product_colour,
-    product_size,
-    product_price,
-  } = req.body;
+  console.log(req.body);
+  const { title, colour, size, price } = req.body;
 
   const data = {
-    product_title,
-    product_colour,
-    product_size,
-    product_price,
+    title,
+    colour,
+    size,
+    price,
   };
 
-  addToBasket(user_id, data).then(() => res.redirect('/'));
+  addToBasket(1, data).then(() => res.redirect('/'));
 }

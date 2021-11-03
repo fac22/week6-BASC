@@ -31,24 +31,25 @@ export default function Product({ product }) {
   // console.log(product);
   return (
     <div>
-      {/* Title */}
-      <h2>{product.title}</h2>
-      {/* Image */}
-      <div className={productStyles.productCard}>
-        <Image
-          key={`img${product.id}`}
-          src={`${product.image}`}
-          alt={product.title}
-          width={200}
-          height={200}
-        />
-        {/* Description */}
-        <p>{product.description}</p>
-      </div>
-      {/* Category */}
-      <p>{product.category}</p>
+      {/* className={productStyles.formCard}  */}
+      <form action="/api/basket" method="POST">
+        {/* Title */}
+        <h2>{product.title}</h2>
+        {/* Image */}
+        <div className={productStyles.productCard}>
+          <Image
+            key={`img${product.id}`}
+            src={`${product.image}`}
+            alt={product.title}
+            width={200}
+            height={200}
+          />
+          {/* Description */}
+          <p>{product.description}</p>
+        </div>
+        {/* Category */}
+        <p>{product.category}</p>
 
-      <form className={productStyles.formCard} action="/api/order">
         {/* Size,  */}
         <label htmlFor="size">
           Size
@@ -56,14 +57,20 @@ export default function Product({ product }) {
             <option value={product.size}>{product.size}</option>
           </select>
         </label>
+
+        <input type="hidden" value={product.price} name="price" />
+        <input type="hidden" value={product.title} name="title" />
+
         <label htmlFor="colour">
           Colour
           <select name="colour" id="colour">
             <option value={product.colour}>{product.colour}</option>
           </select>
         </label>
+
         {/* // Price */}
         <p>£ {product.price}</p>
+
         {/* Quantitiy */}
         <select name="quantity" id="quantity">
           <option value="12">12</option>
