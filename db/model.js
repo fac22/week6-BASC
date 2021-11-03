@@ -61,40 +61,6 @@ const getAllProductsID = () => {
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
 };
 
-const getProduct2 = (id) => {
-  const GET_PRODUCT = {
-    text: `SELECT * FROM products WHERE id=$1`,
-    values: [id],
-  };
-  return db
-    .query(GET_PRODUCT)
-    .then((product) => product.rows[0])
-    .catch((e) => console.log(e.stack));
-};
-
-const getProduct1 = (id) => {
-  const GET_PRODUCT = {
-    text: `
-      SELECT
-        products.product_title,
-        products.product_image,
-        products.product_description,
-        products.product_price,
-        products.product_size,
-        products.product_colour,
-        categories.category_name
-      FROM products
-        JOIN categories
-        ON products.category_id = categories.id
-      WHERE products.id=$1`,
-    values: [id],
-  };
-  return db
-    .query(GET_PRODUCT)
-    .then((product) => product.rows[0])
-    .catch((e) => console.log(e.stack));
-};
-
 const getProduct = (id) => {
   const GET_PRODUCT = {
     text: `
@@ -118,14 +84,27 @@ const getProduct = (id) => {
     .catch((e) => console.log(e.stack));
 };
 
+const addToBasket = (user_id, basket_object) => {
+  const ADD_TOBASKET = {
+    text: 'INSERT INTO basket (user_id, basket_object) VALUES ($1, $2)',
+    values: [user_id, basket_object],
+  };
+
+  return db
+    .query(ADD_TOBASKET)
+    .then((product) => product.rows[0])
+    .catch((e) => console.log(e.stack));
+};
+
 export {
   getUser,
   createUser,
   createSesssion,
-  getAllProducts,
   getSession,
   deleteSession,
   getProduct,
-  getProduct1,
+  getAllProducts,
   getAllProductsID,
+  getProduct,
+  addToBasket,
 };
