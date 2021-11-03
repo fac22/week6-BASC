@@ -9,6 +9,8 @@
     "test": "cypress open"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
     "next": "12.0.2",
     "pg": "^8.7.1",
     "react": "17.0.2",
