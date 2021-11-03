@@ -22,6 +22,33 @@ const createUser = (name, email, password) => {
     .catch((e) => console.log(e.stack));
 };
 
+const createSesssion = (sid, data) => {
+  const CREATE_SESSION = {
+    text: 'INSERT INTO sessions (sid, data) VALUES ($1, $2) RETURNING sid',
+    values: [sid, data],
+  };
+  return db
+    .query(CREATE_SESSION)
+    .then((session) => session.rows[0].sid)
+    .catch((e) => console.log(e.stack));
+};
+
+const getSession = (sid) => {
+  const SELECT_SESSION = {
+    text: `SELECT data FROM sessions WHERE sid=$1;`,
+    values: [sid],
+  };
+  return db
+    .query(SELECT_SESSION)
+    .then((session) => session.rows[0].data)
+    .catch((e) => console.log(e.stack));
+};
+
+function deleteSession(sid) {
+  const DELETE_SESSION = 'DELETE FROM sessions WHERE sid=$1';
+  return db.query(DELETE_SESSION, [sid]);
+}
+
 const getAllProducts = () => {
   const SELECT_PRODUCTS = `
       SELECT * FROM products
@@ -29,4 +56,11 @@ const getAllProducts = () => {
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
 };
 
-export { getUser, createUser,  getAllProducts };
+export {
+  getUser,
+  createUser,
+  createSesssion,
+  getAllProducts,
+  getSession,
+  deleteSession,
+};
