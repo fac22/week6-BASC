@@ -61,12 +61,57 @@ const getAllProductsID = () => {
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
 };
 
-const getProduct = (id) => {
+const getProduct2 = (id) => {
   const GET_PRODUCT = {
-    text: 'SELECT * FROM products WHERE id=$1',
+    text: `SELECT * FROM products WHERE id=$1`,
     values: [id],
   };
+  return db
+    .query(GET_PRODUCT)
+    .then((product) => product.rows[0])
+    .catch((e) => console.log(e.stack));
+};
 
+const getProduct1 = (id) => {
+  const GET_PRODUCT = {
+    text: `
+      SELECT
+        products.product_title,
+        products.product_image,
+        products.product_description,
+        products.product_price,
+        products.product_size,
+        products.product_colour,
+        categories.category_name
+      FROM products
+        JOIN categories
+        ON products.category_id = categories.id
+      WHERE products.id=$1`,
+    values: [id],
+  };
+  return db
+    .query(GET_PRODUCT)
+    .then((product) => product.rows[0])
+    .catch((e) => console.log(e.stack));
+};
+
+const getProduct = (id) => {
+  const GET_PRODUCT = {
+    text: `
+      SELECT
+        products.product_title AS title,
+        products.product_image AS image,
+        products.product_description AS description,
+        products.product_price AS price,
+        products.product_size AS size,
+        products.product_colour AS colour,
+        categories.category_name AS category
+      FROM products
+        JOIN categories
+        ON products.category_id = categories.id
+      WHERE products.id=$1`,
+    values: [id],
+  };
   return db
     .query(GET_PRODUCT)
     .then((product) => product.rows[0])
@@ -81,5 +126,6 @@ export {
   getSession,
   deleteSession,
   getProduct,
+  getProduct1,
   getAllProductsID,
 };

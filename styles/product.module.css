@@ -47,3 +47,23 @@
     flex-direction: column;
   }
 }
+
+.productCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.productCard p {
+  max-width: 600px;
+  flex-shrink: 2;
+}
+
+.productCard img {
+  flex-shrink: 0;
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  max-width: 100px;
+}
