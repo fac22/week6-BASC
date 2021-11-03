@@ -30,11 +30,11 @@ CREATE TABLE products (
     category_id INTEGER REFERENCES categories(id)
 );
 
-CREATE TABLE orders (
+CREATE TABLE basket (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
-    order_object JSON NOT NULL,
-    ordered_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    basket_object JSON NOT NULL,
+    added_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 

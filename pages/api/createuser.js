@@ -6,3 +6,4 @@ export default function handler(req, res) {
     .then(hashPassword(name, email, password))
     .then(() => res.redirect('/success'));
 }
+addTo;

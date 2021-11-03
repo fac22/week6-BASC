@@ -73,13 +73,26 @@ const getProduct = (id) => {
     .catch((e) => console.log(e.stack));
 };
 
+const addToBasket = (user_id, basket_object) => {
+  const ADD_TOBASKET = {
+    text: 'INSERT INTO basket (user_id, basket_object) VALUES ($1, $2)',
+    values: [user_id, basket_object],
+  };
+
+  return db
+    .query(ADD_TOBASKET)
+    .then((product) => product.rows[0])
+    .catch((e) => console.log(e.stack));
+};
+
 export {
   getUser,
   createUser,
   createSesssion,
-  getAllProducts,
   getSession,
   deleteSession,
-  getProduct,
+  getAllProducts,
   getAllProductsID,
+  getProduct,
+  addToBasket,
 };
