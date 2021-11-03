@@ -1,7 +1,8 @@
 'use strict';
+import pg from 'pg';
 
 // import postgres-node
-const pg = require('pg');
+// const pg = require('pg');
 
 // connect to Database using url from .env file
 // see (node-postgres.com/features/connecting) - Connection URI

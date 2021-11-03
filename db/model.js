@@ -11,4 +11,11 @@ const getUser = (email) => {
     .catch((e) => console.log(e.stack));
 };
 
-export { getUser };
+const getAllProducts = () => {
+  const SELECT_PRODUCTS = `
+      SELECT * FROM products
+    `;
+  return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+export { getUser, getAllProducts };
