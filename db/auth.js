@@ -16,6 +16,11 @@ async function hashPassword(name, email, password) {
   return model.createUser(name, email, hashedPassword);
 }
 
+async function saveSession(user) {
+  const sid = crypto.randomBytes(10).toString('base64');
+  return model.createSesssion(sid, user);
+}
+
 async function checkLogin(email, password, name) {
   if (password.length < 1) throw new Error('Please enter a password ❌');
   if (email.length < 1) throw new Error('Please enter an email ❌');
@@ -31,4 +36,11 @@ async function checkSignUp(email, password, name) {
   return { email, password, name };
 }
 
-export { verifyUser, hashPassword, checkLogin, checkSignUp };
+const COOKIE_OPTIONS = {
+  httpOnly: true,
+  maxAge: 1000 * 60000, // 60,000ms (60s)
+  sameSite: 'lax',
+  signed: true,
+};
+
+export { verifyUser, hashPassword, checkLogin, checkSignUp, saveSession };
