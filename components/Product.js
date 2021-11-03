@@ -10,7 +10,7 @@ const Product = ({ product }) => {
         <a className={productStyles.card}>
           <Image
             key={product.id}
-            src={`/${product.product_image}`}
+            src={`${product.product_image}`}
             alt={product.product_title}
             width={200}
             height={200}

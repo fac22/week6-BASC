@@ -6,7 +6,7 @@ export default function ProductList({ productsArray }) {
   return (
     <div className={productStyles.grid}>
       {productsArray.map((product) => (
-        <Product product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );
