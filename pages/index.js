@@ -23,8 +23,6 @@ export default function Home({ productData }) {
         <title>Pillow but Title</title>
       </Head>
 
-      <h1> Hello, this is index.js </h1>
-
       <ProductList productsArray={productsArray} />
     </div>
   );

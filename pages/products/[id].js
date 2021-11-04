@@ -60,6 +60,7 @@ export default function Product({ product }) {
 
         <input type="hidden" value={product.price} name="price" />
         <input type="hidden" value={product.title} name="title" />
+        <input type="hidden" value={product.image} name="image" />
 
         <label htmlFor="colour">
           Colour

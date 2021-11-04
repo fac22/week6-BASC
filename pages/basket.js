@@ -1,14 +1,20 @@
-import React from 'react';
+import ShoppingBasket from '../components/ShoppingBasket';
+import { getMyBasket } from '../db/model';
 
-const Basket = () => {
+export async function getServerSideProps() {
+  const user_id = 1; //find from session
+  const basket = await getMyBasket(user_id);
+  const basketData = JSON.stringify(basket);
+  return {
+    props: { basketData },
+  };
+}
+
+const Basket = ({ basketData }) => {
   return (
     <>
       <h1>Your shopping basket</h1>
-      <form action="api/basket" method="POST">
-        {/* - List all products here (model method for getting basket)
-- Delete button linked to model method */}
-        <button type="submit">Add to Basket</button>
-      </form>
+      <ShoppingBasket basketData={basketData} key={1} />
     </>
   );
 };

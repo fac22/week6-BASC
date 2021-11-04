@@ -96,6 +96,15 @@ const addToBasket = (user_id, basket_object) => {
     .catch((e) => console.log(e.stack));
 };
 
+const getMyBasket = (user_id) => {
+  const GET_FROMBASKET =
+    'SELECT basket_object, id FROM basket WHERE user_id=$1';
+  return db
+    .query(GET_FROMBASKET, [user_id])
+    .then((product) => product.rows)
+    .catch((e) => console.log(e.stack));
+};
+
 export {
   getUser,
   createUser,
@@ -106,4 +115,5 @@ export {
   getAllProducts,
   getAllProductsID,
   addToBasket,
+  getMyBasket,
 };
