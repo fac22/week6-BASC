@@ -1,10 +1,4 @@
-import {
-  verifyUser,
-  checkLogin,
-  saveSession,
-  COOKIE_OPTIONS,
-  keys,
-} from '../../db/auth';
+import { verifyUser, saveSession, COOKIE_OPTIONS, keys } from '../../db/auth';
 
 import Cookies from 'cookies';
 

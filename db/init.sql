@@ -1,5 +1,6 @@
 BEGIN;
 
+
 DROP TABLE IF EXISTS users, sessions, products, basket, categories CASCADE;
 
 CREATE TABLE users (
@@ -47,7 +48,6 @@ INSERT INTO users (email, name, password) VALUES
 
 INSERT INTO categories (category_name) VALUES
 ('Cushion'), ('Socks'), ('Jam'), ('Goblin');
-
 
 INSERT INTO products (category_id, product_title, product_price, product_size, product_colour, product_description, product_image) VALUES
 (1, 'Elephant Cushion', 59, 'Standard', '{"colour":["purple", "blue" ,"pink"]}', 'Elegant, handwoven, 100% silk', '/image/cushion-elephants.png'),

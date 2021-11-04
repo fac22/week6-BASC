@@ -32,7 +32,7 @@ export default function Product({ product }) {
   return (
     <div>
       {/* className={productStyles.formCard}  */}
-      <form action="/api/basket" method="POST">
+      <form action="/api/addToBasket" method="POST">
         {/* Title */}
         <h2>{product.title}</h2>
         {/* Image */}

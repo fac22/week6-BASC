@@ -37,6 +37,8 @@ export async function cookieCheck(req, res) {
     return {
       props: {
         session: false,
+        data: 'no data',
+        sid: 'no sid',
       },
     };
   }
