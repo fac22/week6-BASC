@@ -20,9 +20,9 @@ const Nav = () => {
         <li>
           <Link href="/"> Home</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/"> Cushions</Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/login"> Log-in</Link>
         </li>
