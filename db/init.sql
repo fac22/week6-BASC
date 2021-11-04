@@ -46,7 +46,7 @@ INSERT INTO users (email, name, password) VALUES
 );
 
 INSERT INTO categories (category_name) VALUES
-('Cushion'), ('Pillow'), ('Socks'), ('Jam'), ('Fidget Spinner');
+('Cushion'), ('Socks'), ('Jam'), ('Goblin');
 
 -- INSERT INTO products (product_title, product_image, product_description, product_price, product_size, product_colour, category_id ) VALUES
 -- ('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
@@ -58,14 +58,14 @@ INSERT INTO products (category_id, product_title, product_price, product_size, p
 (1, 'Ostrich Cushion', 69, 'Standard', 'yellow', 'Elegant, handwoven, 100% silk', '/image/cushion-ostrich.jpg'),
 (1, 'Patchwork Cushion', 79, 'Standard', 'multi-colour', 'Elegant, handwoven, 100% silk', '/image/cushion-patchwork.jpg'),
 (1, 'Tiger Cushion', 89, 'Standard', 'red', 'Elegant, handwoven, 100% silk', '/image/cushion-tiger.jpg'),
-(3, 'Beer Motif Socks', 25, 'L', 'blue', 'The perfect fun present for the people you love!', '/image/sock-beer.png'),
-(3, 'Cherry Motif Socks', 26, 'S', 'blue', 'The perfect fun present for the people you love!', '/image/sock-cherry.png'),
-(3, 'Dog Motif Socks', 27, 'M', 'blue', 'The perfect fun present for the people you love!', '/image/sock-dog.png'),
-(3, 'Mushroom Motif Socks', 28, 'M', 'blue', 'The perfect fun present for the people you love!', '/image/sock-mushroom.png'),
-(4, 'Apricot Jam', 12.99, 'Mini', 'yellow', 'Delicious! Organic produce, tasty for everything.', '/image/jam-apricot.jpg'),
-(4, 'Black Currant Jam', 13.99, 'Mini', 'red', 'Delicious! Organic produce, tasty for everything.', '/image/jam-currantbl.jpg'),
-(4, 'Strawberry Jam', 14.99, 'Mini', 'red', 'Delicious! Organic produce, tasty for everything.', '/image/jam-strawberry.jpg'),
-(4, 'Orange Marmalade', 15.99, 'Mini', 'yellow', 'Delicious! Organic produce, tasty for everything.', '/image/jam-orange.jpg'),
-(5, 'Goblin', 30, 'Standard', 'green', 'This is the original fidget spinner', '/image/cushion.png');
+(2, 'Beer Motif Socks', 25, 'L', 'blue', 'The perfect fun present for the people you love!', '/image/sock-beer.png'),
+(2, 'Cherry Motif Socks', 26, 'S', 'blue', 'The perfect fun present for the people you love!', '/image/sock-cherry.png'),
+(2, 'Dog Motif Socks', 27, 'M', 'blue', 'The perfect fun present for the people you love!', '/image/sock-dog.png'),
+(2, 'Mushroom Motif Socks', 28, 'M', 'blue', 'The perfect fun present for the people you love!', '/image/sock-mushroom.png'),
+(3, 'Apricot Jam', 12.99, 'Mini', 'yellow', 'Delicious! Organic produce, tasty for everything.', '/image/jam-apricot.jpg'),
+(3, 'Black Currant Jam', 13.99, 'Mini', 'red', 'Delicious! Organic produce, tasty for everything.', '/image/jam-currantbl.jpg'),
+(3, 'Strawberry Jam', 14.99, 'Mini', 'red', 'Delicious! Organic produce, tasty for everything.', '/image/jam-strawberry.jpg'),
+(3, 'Orange Marmalade', 15.99, 'Mini', 'yellow', 'Delicious! Organic produce, tasty for everything.', '/image/jam-orange.jpg'),
+(4, 'Goblin', 30, 'Standard', 'green', 'This is the original fidget spinner', '/image/cushion.png');
 
 COMMIT;

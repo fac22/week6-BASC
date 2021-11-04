@@ -2,7 +2,6 @@ import React from 'react';
 
 // Filter by: Category, Size, Colour, Price range
 // Sort by price (size)
-const categories = ['Cushion', 'Pillow', 'Socks', 'Jam', 'Fidget Spinner'];
 
 export default function CategoryFilter({
   categoryArray,
