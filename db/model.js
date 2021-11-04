@@ -105,6 +105,16 @@ const getMyBasket = (user_id) => {
     .catch((e) => console.log(e.stack));
 };
 
+export const deleteItemFromBasket = (id) => {
+  const DELETE_ITEM = {
+    text: 'DELETE FROM basket WHERE id=$1;',
+    values: [id],
+  };
+  db.query(DELETE_ITEM)
+    .then((product) => product.rows)
+    .catch((e) => console.log(e.stack));
+};
+
 export {
   getUser,
   createUser,

@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const model = require('./model');
+import Cookies from 'cookies';
 
 export async function verifyUser(email, hashedPassword) {
   const user = await model.getUser(email);
@@ -30,27 +31,29 @@ export async function checkSignUp(email, password, name) {
 
 export const keys = ['uhfeslksdf9edkkdf'];
 
-// export async function cookieCheck(req, res) {
-//   const cookies = new Cookies(req, res);
-//   if (!cookies.get('sid')) {
-//     return {
-//       props: {
-//         session: false,
-//       },
-//     };
-//   }
+export async function cookieCheck(req, res) {
+  const cookies = new Cookies(req, res);
+  if (!cookies.get('sid')) {
+    return {
+      props: {
+        session: false,
+        data: 'no data',
+        sid: 'no sid',
+      },
+    };
+  }
 
-//   const sid = cookies.get('sid');
-//   const data = await model.getSession(sid);
-//   console.log(data);
-//   return {
-//     props: {
-//       session: true,
-//       data,
-//       sid,
-//     },
-//   };
-// }
+  const sid = cookies.get('sid');
+  const data = await model.getSession(sid);
+  console.log(data);
+  return {
+    props: {
+      session: true,
+      data,
+      sid,
+    },
+  };
+}
 
 export const COOKIE_OPTIONS = {
   httpOnly: true,

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 // import Layout from '../components/Layout.js';
-import { getAllProducts } from '../db/model';
+import { getAllProducts, getSession } from '../db/model';
 import ProductList from '../components/ProductList';
 import Cookies from 'cookies';
-import { getSession } from '../db/model';
+import Navbar from '../components/Nav';
 
 export async function getServerSideProps({ req, res }) {
   const allProducts = await getAllProducts();
@@ -15,6 +15,7 @@ export async function getServerSideProps({ req, res }) {
       props: {
         session: false,
         productData,
+        data: null,
       },
     };
   }
@@ -40,9 +41,9 @@ export default function Home({ productData, data }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Pillow shop" />
         <meta name="title" content="Pillows" />
-        <title>Pillow but Title</title>
+        <title>SUBCOMFY</title>
       </Head>
-      <h1> {data.name}</h1>
+
       <ProductList productsArray={productsArray} />
     </div>
   );

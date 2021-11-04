@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, sessions, products, orders, categories CASCADE;
+DROP TABLE IF EXISTS users, sessions, products, orders, categories, basket CASCADE;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -50,7 +50,16 @@ INSERT INTO categories (category_name) VALUES
 
 INSERT INTO products (product_title, product_image, product_description, product_price, product_size, product_colour, category_id ) VALUES
 ('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
-('Cozy Tree Cushion', '/image/magentoimage_nklqoykouyn4jfjh.png', 'This cushion is really sustainable, can wash it at 60°C. Wonderful design', 200, 'Normal', 'green', 1 );
+('Cozy Tree Cushion', '/image/magentoimage_nklqoykouyn4jfjh.png', 'This cushion is really sustainable, can wash it at 60°C. Wonderful design', 200, 'Normal', 'green', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 ),
+('Comfy Field Cushion', '/image/cushion.png', 'This cushion is amazing, blablabla, can wash it at 40°C. Wonderful design, totally some real people’s photos', 140.99, 'Normal', 'blue', 1 );
 
 
 COMMIT;
