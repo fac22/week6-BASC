@@ -1,23 +1,30 @@
-// import Image from 'next/image';
+import Image from 'next/image';
 
 export default function ShoppingBasket({ basketData }) {
   const basketArr = JSON.parse(basketData);
+  let total = 0;
   return (
     <div>
       <ul>
         {basketArr.map((entry) => {
+          total +=
+            parseFloat(entry.basket_object.price || 0) *
+            parseFloat(entry.basket_object.quantity || 0);
+
           return (
             <li key={entry.id}>
               <h3>Title: {entry.basket_object.title}</h3>
               <p>Colour: {entry.basket_object.colour}</p>
               <p>Size: {entry.basket_object.size}</p>
-              {/* <Image
-                key={entry.id}
-                src={`${entry.basket_object.image}`}
-                alt={entry.basket_object.title}
-                width={200}
-                height={200}
-              /> */}
+              {entry.basket_object.image && (
+                <Image
+                  key={entry.id}
+                  src={`${entry.basket_object.image}`}
+                  alt={entry.basket_object.title}
+                  width={200}
+                  height={200}
+                />
+              )}
               <p>Quantity: {entry.basket_object.quantity}</p>
               <p>
                 £{' '}
@@ -27,7 +34,7 @@ export default function ShoppingBasket({ basketData }) {
           );
         })}
       </ul>
-      <p>Total Price</p>
+      <p>Total Price:£{total.toFixed(2)}</p>
     </div>
   );
 }

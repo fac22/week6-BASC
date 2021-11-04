@@ -1,7 +1,5 @@
 import { getProduct, getAllProductsID } from '../../db/model';
-// import { getAllProducts, getProduct, getAllProductsID } from '../../db/model';
 import productStyles from '../../styles/product.module.css';
-import Layout from '../../components/Layout';
 import Image from 'next/image';
 import React from 'react';
 
@@ -28,7 +26,9 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Product({ product }) {
-  // console.log(product);
+  const colour = product.colour;
+  const colours = JSON.parse(colour);
+
   return (
     <div>
       {/* className={productStyles.formCard}  */}
@@ -49,7 +49,6 @@ export default function Product({ product }) {
         </div>
         {/* Category */}
         <p>{product.category}</p>
-
         {/* Size,  */}
         <label htmlFor="size">
           Size
@@ -57,7 +56,6 @@ export default function Product({ product }) {
             <option value={product.size}>{product.size}</option>
           </select>
         </label>
-
         <input type="hidden" value={product.price} name="price" />
         <input type="hidden" value={product.title} name="title" />
         <input type="hidden" value={product.image} name="image" />
@@ -65,20 +63,27 @@ export default function Product({ product }) {
         <label htmlFor="colour">
           Colour
           <select name="colour" id="colour">
-            <option value={product.colour}>{product.colour}</option>
+            {colours.colour.map((colour) => {
+              return (
+                <option value={colour} key={colour}>
+                  {colour}
+                </option>
+              );
+            })}
           </select>
         </label>
-
         {/* // Price */}
         <p>£ {product.price}</p>
-
         {/* Quantitiy */}
-        <select name="quantity" id="quantity">
-          <option value="12">12</option>
-          <option value="52">52</option>
-          <option value="356">356</option>
-        </select>
-
+        <label htmlFor="quantity">Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          id="quantity"
+          min={1}
+          max={100}
+          required
+        />
         {/* // Button: Add-To-Basket */}
         <button type="submit">Add to Basket</button>
       </form>
