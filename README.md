@@ -31,16 +31,16 @@ This is an exclusive, members-only subscription service for your homeware dreams
 
 ### Database
 
-![Database Graph](/image/pillows-db.png)
+![Database Graph](./image/pillows-db.png)
 
 ### Components
 
-![Components Graph](/image/pillows-components.png)
+![Components Graph](./image/pillows-components.png)
 
 ### Page Design
 
-![Page Graph](/image/pillows-pages.png)
-![Basket Page Graph](/image/pillows-basket.png)
+![Page Graph](./image/pillows-pages.png)
+![Basket Page Graph](./image/pillows-basket.png)
 
 ## Instructions
 
