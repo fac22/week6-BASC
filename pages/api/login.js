@@ -14,5 +14,5 @@ export default function handler(req, res) {
   verifyUser(email, password)
     .then((user) => saveSession(user))
     .then((sid) => cookies.set('sid', sid, COOKIE_OPTIONS))
-    .then(() => res.redirect('/'));
+    .then(() => res.redirect('/success'));
 }

@@ -8,7 +8,11 @@ export async function getServerSideProps({ req, res }) {
   return await cookieCheck(req, res);
 }
 
-export default function Success({ session, data }) {
+export default function Success({ session, data, sid }) {
   if (!session) return <p>NOT LOGGED IN</p>;
-  return <p>LOGGED IN {data.name}</p>;
+  return (
+    <p>
+      LOGGED IN {data.name} + {sid}
+    </p>
+  );
 }

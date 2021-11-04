@@ -40,12 +40,15 @@ export async function cookieCheck(req, res) {
       },
     };
   }
-  const data = await model.getSession(cookies.get('sid'));
+
+  const sid = cookies.get('sid');
+  const data = await model.getSession(sid);
   console.log(data);
   return {
     props: {
       session: true,
       data,
+      sid,
     },
   };
 }
