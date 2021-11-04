@@ -1,13 +1,17 @@
+import React from 'react';
 import Head from 'next/head';
-// import Layout from '../components/Layout.js';
-import { getAllProducts, getSession } from '../db/model';
+import { getAllProducts, getAllCategories, getSession  } from '../db/model';
 import ProductList from '../components/ProductList';
 import Cookies from 'cookies';
-import Navbar from '../components/Nav';
+import CategoryFilter from '../components/CategoryFilter';
+
 
 export async function getServerSideProps({ req, res }) {
   const allProducts = await getAllProducts();
   const productData = JSON.stringify(allProducts);
+  const allCategories = await getAllCategories();
+  const categoryData = JSON.stringify(allCategories);
+
   const cookies = new Cookies(req, res);
 
   if (!cookies.get('sid')) {
@@ -16,6 +20,7 @@ export async function getServerSideProps({ req, res }) {
         session: false,
         productData,
         data: null,
+         categoryData 
       },
     };
   }
@@ -29,22 +34,36 @@ export async function getServerSideProps({ req, res }) {
       data,
       sid,
       productData,
+       categoryData 
     },
   };
 }
 
-export default function Home({ productData, data }) {
+
+  
+
+
+export default function Home({ productData, categoryData, data }) {
+
   const productsArray = JSON.parse(productData);
+  const categoryArray = JSON.parse(categoryData);
+  const [category, setCategory] = React.useState('All');
+  // console.log(category);
+  // console.log(categoryArray);
   return (
     <div>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/cushion.png" />
         <meta name="description" content="Pillow shop" />
         <meta name="title" content="Pillows" />
-        <title>SUBCOMFY</title>
+        <title>Subcomfy</title>
       </Head>
-
-      <ProductList productsArray={productsArray} />
+      <CategoryFilter
+        categoryArray={categoryArray}
+        category={category}
+        setCategory={setCategory}
+      />
+      <ProductList productsArray={productsArray} category={category} />
     </div>
   );
 }

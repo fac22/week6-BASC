@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const Nav = () => {
   return (
+
     <>
       <li className={navStyles.nav}>
         <Link href="/">
@@ -23,10 +24,6 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link href="/">Cushions</Link>
-          </li>
-
-          <li>
             <Link href="/basket">Basket</Link>
           </li>
 
@@ -40,6 +37,7 @@ const Nav = () => {
         </ul>
       </nav>
     </>
+
   );
 };
 
