@@ -1,7 +1,6 @@
 import { getProduct, getAllProductsID } from '../../db/model';
 import productStyles from '../../styles/product.module.css';
 import Image from 'next/image';
-import React from 'react';
 
 export async function getStaticPaths() {
   const pathData = await getAllProductsID();

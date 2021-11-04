@@ -5,7 +5,6 @@ import Cookies from 'cookies';
 
 export async function verifyUser(email, hashedPassword) {
   const user = await model.getUser(email);
-  console.log(user, 'USER DATA');
   const match = await bcrypt.compare(hashedPassword, user.password);
   if (!match) throw new Error('Password is incorrect ❌');
   delete user.password;
@@ -45,7 +44,6 @@ export async function cookieCheck(req, res) {
 
   const sid = cookies.get('sid');
   const data = await model.getSession(sid);
-  console.log(data);
   return {
     props: {
       session: true,

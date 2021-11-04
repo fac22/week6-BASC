@@ -18,5 +18,8 @@ export default async function handler(req, res, props) {
     quantity,
   };
 
-  addToBasket(data.id, items).then(() => res.redirect('/'));
+  if (!data.id) return res.redirect('/');
+  addToBasket(data.id, items)
+    .then(() => res.redirect('/'))
+    .catch((e) => console.log(e.stack));
 }

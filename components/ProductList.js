@@ -3,8 +3,6 @@ import Product from './Product.js';
 import productStyles from '../styles/product.module.css';
 
 export default function ProductList({ productsArray, category }) {
-  console.log(productsArray);
-  // console.log(productsArray);
   return (
     <div className={productStyles.grid}>
       {productsArray

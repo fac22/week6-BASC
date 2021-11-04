@@ -16,7 +16,6 @@ export async function getServerSideProps({ req, res }) {
   const sid = cookies.get('sid');
   const data = await getSession(sid);
   const basket = await getMyBasket(data.id);
-  console.log(basket);
   const basketData = JSON.stringify(basket);
   return {
     props: {
@@ -29,10 +28,18 @@ export async function getServerSideProps({ req, res }) {
 }
 
 const Basket = ({ session, data, sid, basketData }) => {
+  if (!session)
+    return (
+      <>
+        <h1>Login please</h1>
+      </>
+    );
+
   return (
     <>
-      <h1>Your shopping basket</h1>
-      <ShoppingBasket basketData={basketData} key={1} />
+      <h1>
+        Your shopping <ShoppingBasket basketData={basketData} key={1} /> basket
+      </h1>
     </>
   );
 };

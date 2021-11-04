@@ -1,10 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import { getAllProducts, getAllCategories, getSession  } from '../db/model';
+import { getAllProducts, getAllCategories, getSession } from '../db/model';
 import ProductList from '../components/ProductList';
 import Cookies from 'cookies';
 import CategoryFilter from '../components/CategoryFilter';
-
 
 export async function getServerSideProps({ req, res }) {
   const allProducts = await getAllProducts();
@@ -20,7 +19,7 @@ export async function getServerSideProps({ req, res }) {
         session: false,
         productData,
         data: null,
-         categoryData 
+        categoryData,
       },
     };
   }
@@ -34,22 +33,15 @@ export async function getServerSideProps({ req, res }) {
       data,
       sid,
       productData,
-       categoryData 
+      categoryData,
     },
   };
 }
 
-
-  
-
-
 export default function Home({ productData, categoryData, data }) {
-
   const productsArray = JSON.parse(productData);
   const categoryArray = JSON.parse(categoryData);
   const [category, setCategory] = React.useState('All');
-  // console.log(category);
-  // console.log(categoryArray);
   return (
     <div>
       <Head>

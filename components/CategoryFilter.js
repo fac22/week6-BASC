@@ -8,7 +8,6 @@ export default function CategoryFilter({
   category,
   setCategory,
 }) {
-  // console.log(categoryArray);
   return (
     <fieldset>
       <legend>Filter by Category:</legend>
