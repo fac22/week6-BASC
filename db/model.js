@@ -49,8 +49,26 @@ function deleteSession(sid) {
   return db.query(DELETE_SESSION, [sid]);
 }
 
-const getAllProducts = () => {
+const getAllProducts1 = () => {
   const SELECT_PRODUCTS = `SELECT * FROM products`;
+  return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+const getAllProducts = () => {
+  const SELECT_PRODUCTS = `
+  SELECT
+    products.id,
+    products.product_title,
+    products.product_image,
+    products.product_description,
+    products.product_price,
+    products.product_size,
+    products.product_colour,
+    categories.category_name
+  FROM products
+  JOIN categories
+  ON products.category_id = categories.id
+  `;
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
 };
 
@@ -59,6 +77,11 @@ const getAllProductsID = () => {
       SELECT id FROM products
     `;
   return db.query(SELECT_PRODUCTS).then((result) => result.rows);
+};
+
+const getAllCategories = () => {
+  const SELECT_CATEGORIES = `SELECT * FROM categories`;
+  return db.query(SELECT_CATEGORIES).then((result) => result.rows);
 };
 
 const getProduct = (id) => {
@@ -114,6 +137,7 @@ export {
   getProduct,
   getAllProducts,
   getAllProductsID,
+  getAllCategories,
   addToBasket,
   getMyBasket,
 };
