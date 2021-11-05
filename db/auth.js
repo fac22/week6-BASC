@@ -54,7 +54,7 @@ export async function cookieCheck(req, res) {
 }
 
 export const COOKIE_OPTIONS = {
-  httpOnly: true,
+  httpOnly: false,
   maxAge: 1000 * 60000, // 60,000ms (60s)
   sameSite: 'lax',
   signed: true,
