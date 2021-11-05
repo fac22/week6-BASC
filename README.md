@@ -1,3 +1,49 @@
+# Subcomfy
+
+This is an exclusive, members-only subscription service for your homeware dreams: cushions, socks, jams and a goblin. Create an account and start shopping!
+
+## A Project by
+
+- Co-authored-by: Adriana <82960475+aaadriana@users.noreply.github.com>
+- Co-authored-by: Barbara <77367593+0bubbles0@users.noreply.github.com>
+- Co-authored-by: cemalokten <60609268+cemalokten@users.noreply.github.com>
+- Co-authored-by: Sasha <59370143+cerealenjoyer@users.noreply.github.com>
+
+## Acceptance Criteria
+
+- [x] Server-rendered with Next.js
+- [x] Hosted on Vercel
+- [x] Data stored in ElephantSQL Postgres
+- [x] Homepage with product listings
+- [x] Individual product pages, containing:
+  - [x] Quantity/colour/variant pickers
+
+### Stretch criteria
+
+- [x] “Add to basket” button on product pages
+- [x] Basket page showing all saved items
+- [x] Basket contents persisted for future visits
+- [x] Filter products by category
+- [] Sort products by price
+- [] “Featured” products on homepage
+
+## Planning
+
+### Database
+
+![Database Graph](./public/image/pillows-db.png)
+
+### Components
+
+![Components Graph](./public/image/pillows-components.png)
+
+### Page Design
+
+![Page Graph](./public/image/pillows-pages.png)
+![Basket Page Graph](./public/image/pillows-basket.png)
+
+## Instructions
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
